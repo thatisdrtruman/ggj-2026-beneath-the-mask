@@ -4,23 +4,23 @@ Double: Who are you? What's happening? Why do you look like me?
 - I think there's been some kind of accident.
 	You: I think there's been some kind of accident. I was guarding the mask, and then I couldn't resist it any longer. I had to put it on...
 	Double: Then there was the crack. => remember
-- Why do you look like me? [if State.provoke == 0]
+- Why do you look like me? [if state.provoke == 0]
 	Double: You won't trick me so easily. You did this to me, didn't you?
-	set State.provoke = 1
-- I didn't do anything. I'm trying to help you. [if State.provoke == 1]
-	set State.provoke = 3
+	set state.provoke = 1
+- I didn't do anything. I'm trying to help you. [if state.provoke == 1]
+	set state.provoke = 3
 	Double: Maybe. Help me? Maybe, I don't know.
 - Take off the mask. => mask
 => opts
 
 ~ remember
-- You remember it too? [if State.memory==0]
-	set State.memory = 1
+- You remember it too? [if state.memory==0]
+	set state.memory = 1
 	Double: The memory is hazy. But it was horrible. I think something terrible has happened to us. => remember
 - You should take off your mask. => mask
 - It's over now. It's going to be okay. => comfort
-- What else do you remember? [if State.memory==1]
-	set State.memory = 3
+- What else do you remember? [if state.memory==1]
+	set state.memory = 3
 	Double: Nothing. Just that I was suddenly here. And that I felt scared. So very scared. => remember
 
 ~ mask
@@ -36,14 +36,15 @@ Double: Take off the mask? I don't think so. No, I don't think I'll do that.
 Double: Do you promise?
 - I promise.
 	Double: Thank you. I was so scared.
-	set State.promised = true
+	set state.promised = true
 - You're going to have to trust me.
 	Double: Okay then. I can try. But I'm so afraid.
 ~ end
 - Now, take off the mask.
 Yes. 
-if State.promised == true
+if state.promised == true
 	You promised.
 else
 	I trust you.
 It's going to be okay.
+=> END!

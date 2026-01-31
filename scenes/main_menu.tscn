@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://comu6j41cmiuf"]
 
 [ext_resource type="FontFile" uid="uid://cvoepn6wojfx0" path="res://assets/fonts/Xolonium-Regular.otf" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://twce241mbais" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0.34407574, 0.34407577, 0.3440756, 1)
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ekxnf")
 
 [node name="Background" type="Panel" parent="." unique_id=228531596]
 layout_mode = 1
@@ -71,3 +73,5 @@ theme_override_fonts/font = ExtResource("1_06t4h")
 theme_override_font_sizes/font_size = 54
 text = "Exit
 "
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
