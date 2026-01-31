@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b5p57rndehg6j"]
+
+[ext_resource type="FontFile" uid="uid://cvoepn6wojfx0" path="res://fonts/Xolonium-Regular.otf" id="1_kb4ov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g43eu"]
+bg_color = Color(0.34407574, 0.34407577, 0.3440756, 1)
+
+[node name="Control" type="Control" unique_id=1795160936]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="." unique_id=1564867766]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g43eu")
+
+[node name="LevelCompleted" type="Label" parent="." unique_id=1956995433]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.5
+offset_top = -242.5
+offset_right = 176.5
+offset_bottom = -151.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_kb4ov")
+theme_override_font_sizes/font_size = 60
+text = "Level # completed"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=227024571]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -120.0
+offset_right = 214.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="TimePast" type="Label" parent="VBoxContainer" unique_id=1989092340]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kb4ov")
+theme_override_font_sizes/font_size = 36
+text = "Time past: #"
+
+[node name="MaskCountSwitch" type="Label" parent="VBoxContainer" unique_id=868239917]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_kb4ov")
+theme_override_font_sizes/font_size = 36
+text = "Mask switch count: #"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1088530357]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 49.0
+offset_right = 139.0
+offset_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer2" unique_id=29670192]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_kb4ov")
+theme_override_font_sizes/font_size = 54
+text = "Continue"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer2" unique_id=1052228992]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_kb4ov")
+theme_override_font_sizes/font_size = 54
+text = "Exit
+"
