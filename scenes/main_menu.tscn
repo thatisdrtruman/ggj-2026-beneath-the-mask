@@ -6,6 +6,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
 bg_color = Color(0.34407574, 0.34407577, 0.3440756, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control" unique_id=1515577867]
 layout_mode = 3
 anchors_preset = 15
@@ -74,4 +77,18 @@ theme_override_font_sizes/font_size = 54
 text = "Exit
 "
 
+[node name="FadePanel" type="Panel" parent="." unique_id=94213024]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
+
+[connection signal="focus_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
