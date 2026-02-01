@@ -9,23 +9,22 @@ Masked Man: Reality has shattered. Someone has used the Mask of Many Worlds.
 	Masked Man: Yes and no.
 Masked Man: The shattering of reality has now created many masks, and many versions of the thief who stole it.
 - Let me guess - I'm supposed to destory all the masks to restore reality? =>< smart_guy
-- Oh no! Well, good luck with that.
-	Masked Man: If only it were so simple...
+- Too many Masks of Many Worlds?
+	Masked Man: Exactly.
 - About this thief... =>< suspicious
 ~ return
 Masked Man: You must destroy all the masks to restore reality.
-- I was going to say that!
-	set state.fucking_around = state.fucking_around + 1
-	Masked Man: Good for you? In any case...
+- That's what I assumed.
+	Masked Man: Good. Though the task may not be as simple as you assume.
 - Consider it done.
 	Masked Man: I am glad to hear it, but it might not be as simple as you think.
 - Why does it have to be me?
 	Masked Man: For I fear I am not long for this world.
- Masked Man: The facility is in lockdown. To overcome these defences, you may have to use the masks themselves and access the shattered world. But be warned, all masks will crack and break once removed.
+ Masked Man: The facility is in lockdown. To overcome these defences, you may have to use the masks themselves by pressing 'm' to access the shattered world. But be warned, all masks will crack and break once removed.
 - I will find a way.
-- It's never easy is it?
+- What do you mean by 'pressing m'?
 	set state.fucking_around = state.fucking_around + 1
-	Masked Man: Alas, it is not. And what is more...
+	Masked Man: On your keyboard. It also removes the mask, in case you were wondering.
 -  Anything else you need to explain to me?
 	set state.fucking_around = state.fucking_around + 1
 	Masked Man: As it happens... yes. 
