@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cqb7ovwdxo7ve"]
 
-[ext_resource type="Script" uid="uid://cxmd3bq4uaky0" path="res://scripts/first_dialogue.gd" id="1_i0cxt"]
+[ext_resource type="Script" uid="uid://cxmd3bq4uaky0" path="res://scripts/dialogue.gd" id="1_i0cxt"]
 
-[node name="FirstDialogue" type="Control" unique_id=214283168]
+[node name="DialogueScene" type="Control" unique_id=214283168]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
