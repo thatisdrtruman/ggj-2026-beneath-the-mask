@@ -1,29 +1,19 @@
 extends Node3D
 
-# Replaced by singleton class 'state'
-# var level: int = 1
-# var current_level_root:Node = null
+
+#var level: int = 1
+#var current_level_root:Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	match state.gameplay_state:
-		0:
-			print("gamestate 0")
-			state.current_level_root= get_node("Level_root")
-			_setup_level(state.current_level_root)
-			state.gameplay_state = 1
-		1:
-			print("gamestate 1")
-			_load_level(state.current_level)
-		2:
-			print("gamestate 2")
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	state.current_level_root= get_node("Level_root")
+	_setup_level(state.current_level_root)
 	#_load_level(level)
 
 
+	
 func _setup_level(level_root:Node):
 	var exit = level_root.get_node_or_null("Level_exit")
-	print(exit)
 	if exit:
 		print('level has exit')
 		exit.body_entered.connect(_on_exit_body_entered)
@@ -31,11 +21,8 @@ func _setup_level(level_root:Node):
 func _on_exit_body_entered(body):
 	print(body)
 	state.current_level += 1
-	get_tree().change_scene_to_file("res://scenes/dialogue.tscn")
-	#_load_level(state.current_level)
-
-func _on_dialogue_ended(body):
 	_load_level(state.current_level)
+
 
 func _load_level(level_number:int):
 	print('room change to ',level_number)
@@ -47,7 +34,3 @@ func _load_level(level_number:int):
 	add_child(state.current_level_root)
 	state.current_level_root.name = "Level_root"
 	_setup_level(state.current_level_root)
-	
-func _load_dialogue(dialogue_number:int):
-	
-	pass
