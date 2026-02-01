@@ -1,50 +1,79 @@
 ~ start
-Double: Who are you? What's happening? Why do you look like me?
-~ opts
-- I think there's been some kind of accident.
-	You: I think there's been some kind of accident. I was guarding the mask, and then I couldn't resist it any longer. I had to put it on...
-	Double: Then there was the crack. => remember
-- Why do you look like me? [if state.provoke == 0]
-	Double: You won't trick me so easily. You did this to me, didn't you?
-	set state.provoke = 1
-- I didn't do anything. I'm trying to help you. [if state.provoke == 1]
-	set state.provoke = 3
-	Double: Maybe. Help me? Maybe, I don't know.
-- Take off the mask. => mask
-=> opts
-
-~ remember
-- You remember it too? [if state.memory==0]
-	set state.memory = 1
-	Double: The memory is hazy. But it was horrible. I think something terrible has happened to us. => remember
-- You should take off your mask. => mask
-- It's over now. It's going to be okay. => comfort
-- What else do you remember? [if state.memory==1]
-	set state.memory = 3
-	Double: Nothing. Just that I was suddenly here. And that I felt scared. So very scared. => remember
-
-~ mask
-Double: Take off the mask? I don't think so. No, I don't think I'll do that.
-~ opts2
-- Trust me, you're going to be okay. => comfort
-- Take it off. Now.
-	Double: No, I won't do that. I won't take it off. => opts2
-- You were fine before you put on the mask, weren't you?
-	You: You were fine before you put on the mask, weren't you? So if you take it off, eveything will be okay again.
-	Double: Maybe. I don't know. No, I don't think I will. => opts2
-~ comfort
-Double: Do you promise?
-- I promise.
-	Double: Thank you. I was so scared.
-	set state.promised = true
-- You're going to have to trust me.
-	Double: Okay then. I can try. But I'm so afraid.
-~ end
-- Now, take off the mask.
-Yes. 
-if state.promised == true
-	You promised.
+Masked Man: Reality has shattered. Someone has used the Mask of Many Worlds.
+- How can I help?
+- The mask of the what?
+	set state.fucking_around = state.fucking_around + 1
+	=>< query
+- This mask... it's nothing like the one you're currently wearing, is it?
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: Yes and no.
+Masked Man: The shattering of reality has now created many masks, and many versions of the thief who stole it.
+- Let me guess - I'm supposed to destory all the masks to restore reality? =>< smart_guy
+- Oh no! Well, good luck with that.
+	Masked Man: If only it were so simple...
+- About this thief... =>< suspicious
+~ return
+Masked Man: You must destroy all the masks to restore reality.
+- I was going to say that!
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: Good for you? In any case...
+- Consider it done.
+	Masked Man: I am glad to hear it, but it might not be as simple as you think.
+- Why does it have to be me?
+	Masked Man: For I fear I am not long for this world.
+ Masked Man: The facility is in lockdown. To overcome these defences, you may have to use the masks themselves and access the shattered world. But be warned, all masks will crack and break once removed.
+- I will find a way.
+- It's never easy is it?
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: Alas, it is not. And what is more...
+-  Anything else you need to explain to me?
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: As it happens... yes. 
+Masked Man: Along your travels, you may come across more of us wearing such masks, and they may not be as ready as I to part with them. 
+Masked Man: Now, I am afraid that I must remove my mask, and entrust this task to you. 
+if state.fucking_around >= 3
+	Masked Man: I hope, in out merging, I will act as a more sobering influence.
 else
-	I trust you.
-It's going to be okay.
+	Masked Man: I hope, in out merging, I  may still guide you.
+- What's this about merging?
+	Masked Man: I hope that all will become clear, in time.
+- Trust in me to see this task through. =>< trust
+- Wait... don't you have more exposition for me?
+	Masked Man: I'm afraid there is no more time.
+Masked Man: Fairwell, and fair luck to you.
 => END!
+
+~ query
+Masked Man: The Mask of Many Worlds. You know, the thing that you were meant to be guarding.
+- My bad.
+- Well, nobody's perfect.
+Masked Man: Indeed.
+=> END
+
+~ smart_guy
+Masked Man: That's exactly right. How did you know?
+- A lucky guess.
+	Masked Man: Then I am glad all luck has not abandoned us.
+- It's a little generic, don't you think?
+	set state.fucking_around = state.fucking_around + 1
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: Be that as it may...
+	=> return
+	
+~ suspicious
+Masked Man: Yes? 
+- Are you the thief?
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: I couldn't possibly comment. 
+- It's not secretly me all along, is it?
+	set state.fucking_around = state.fucking_around + 1
+	Masked Man: I couldn't possibly comment. 
+- They better watch their back, is all.
+	Masked Man: There's the spirit. 
+=> END
+
+~ trust
+if state.fucking_around <= 1
+	Masked Man: My trust in you is strong.
+else
+	Masked Man: I give you what trust I have.

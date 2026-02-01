@@ -1,0 +1,64 @@
+~ start
+Masked Man: Who are you? What's happening? Why do you look like me?
+~ opts1
+- Someone has used the Mask of Many Worlds. =>< remember
+- Why do YOU look like me? 
+	Masked Man: You won't trick me so easily. You did this to me, didn't you? =>< provoke
+- Take off the mask. => mask
+=> opts1
+~ opts2
+- Someone has used the Mask of Many Worlds. =>< remember
+- Take off the mask. => mask
+~ opts3
+- Take off the mask. => mask
+
+~ remember
+Masked Man: Yes. I was guarding the mask, and then I couldn't resist it any longer. I had to put it on...
+You: Then there was a crack.
+Masked Man: You remember it too?
+- The memory is hazy. But yes. =>< more_memory
+- You should take off your mask. => mask
+- It's over now. It's going to be okay. => comfort
+
+
+~ more_memory
+You: The memory is hazy. But yes, I remember something like that.
+Masked Man: And then you were somewhere else? And you felt scared? So very scared?
+- I wasn't afraid.
+	Masked Man: I think you should be. I think something's gone terribly wrong. 
+- Something like that.
+	Masked Man: Something's gone terribly wrong, hasn't it?
+=> opts3
+
+~ provoke
+- I didn't do anything. I'm trying to help you.
+	Masked Man: Maybe. Help me? Maybe, I don't know. => opts2
+- Someone has used the Mask of Many Worlds. =>< remember 
+- Take off the mask. => mask
+
+~ mask
+Masked Man: Take off the mask? I don't think so. No, I don't think I'll do that.
+~ loop
+- Trust me, you're going to be okay. => comfort
+- Take it off. Now.
+	Masked Man: No, I won't do that. I won't take it off. => loop
+- You were fine before you put on the mask, weren't you?
+	You: You were fine before you put on the mask, weren't you? So if you take it off, eveything will be okay again.
+	Masked Man: Maybe. I don't know. No, I don't think I will. => loop
+	
+~ comfort
+Masked Man: Do you promise?
+- I promise.
+	Masked Man: Thank you. I was so scared.
+	set state.promised = true
+- You're going to have to trust me.
+	Masked Man: Okay then. I can try. But I'm so afraid.
+~ end
+- Now, take off the mask.
+Masked Man: Yes. 
+if state.promised == true
+	Masked Man: You promised.
+else
+	Masked Man: I trust you.
+Masked Man: It's going to be okay.
+=> END!
