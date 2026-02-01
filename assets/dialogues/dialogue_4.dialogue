@@ -1,0 +1,63 @@
+
+~ start
+Masked Man: Look upon me and dispair! I wield the power of the Mask.
+- We're the same person, idiot.
+	Masked Man: Once I might have been a lowly guard like you, but now I am the Lord of Many Masks. => opts
+- Very impressive! Can I take a closer look at the power of your mask?
+	Masked Man: It is too mighty, it would destroy a lowly guard like you. => opts2
+- You need to remove your mask.
+	Masked Man: And why should I, the mighty Lord of Many Masks, listen to the likes of you? => mask 
+
+~ opts
+- Sorry to doubt you. Can I take a closer look at the power of your mask?
+	Masked Man: It is too mighty, it would destroy a lowly guard like you. => opts3
+- You need to remove your mask.
+	Masked Man: And why should I, the mighty Lord of Many Masks, listen to the likes of you? => mask 
+~ opts2
+- We're the same person, idiot.
+	Masked Man: Once I might have been a lowly guard like you, but now I am the Lord of Many Masks. => opts3
+- You need to remove your mask.
+	Masked Man: And why should I, the mighty Lord of Many Masks, listen to the likes of you? => mask
+~ opts3
+- You need to remove your mask.
+	Masked Man: And why should I, the mighty Lord of Many Masks, listen to the likes of you? => mask 
+	
+~ mask
+- Because reality will shatter unless the final mask is destroyed.
+	Masked Man: That sounds like a lot of nonsense to me. Besides, I will protect reality with the immense power of my mask. => mask2
+- The Mask is too powerful, it will destroy you if you don't remove it.
+	Masked Man: Will it?
+	You: I don't know. Probably. => mask3
+- Why not? Scared you won't look so powerful without your fancy mask? => loop
+~ mask2
+- The Mask is too powerful, it will destroy you if you don't remove it.
+	Masked Man: Will it?
+	You: I don't know. Probably. => mask4
+- Why not? Scared you won't look so powerful without your fancy mask? => loop
+~ mask3
+- Because reality will shatter unless the final mask is destroyed.
+	Masked Man: That sounds like a lot of nonsense to me. Besides, I will protect reality with the immense power of my mask. => mask4
+- Why not? Scared you won't look so powerful without your fancy mask? => loop
+~ mask4
+- Why not? Scared you won't look so powerful without your fancy mask? => loop
+~ loop
+Masked Man: Of course not.
+- Why don't you then?
+	Masked Man: I think I look nice with the mask, is all. => loop2
+- Sounds like you're too scared.
+	Masked Man: I don't have to listen to you. I know I'm not scared. => loop3
+- I think you'd be even more powerful without the Mask. => end
+~ loop2
+- Sounds like you're too scared.
+	Masked Man: I don't have to listen to you. I know I'm not scared. => loop4
+- I think you'd be even more powerful without the Mask. => end
+~ loop3
+- Why don't you then?
+	Masked Man: I think I look nice with the mask, is all. => loop4
+- I think you'd be even more powerful without the Mask. => end
+~ loop4
+- I think you'd be even more powerful without the Mask. => end
+~ end
+Masked Man: Do you really think so? Yes, I suppose I probably would be.
+Masked Man: Thank you for saying so. And for believing in me.
+=> END!
