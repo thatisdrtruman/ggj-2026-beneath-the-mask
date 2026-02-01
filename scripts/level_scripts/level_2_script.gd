@@ -6,11 +6,16 @@ extends Node3D
 @onready var button_b = $Button_B/StaticBody3D
 @onready var door_2 = $Door_2
 
+@onready var player := $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	button_a.pressed.connect(door_1.toggle)
+	#button_a.pressed.connect(door_1.toggle)
 	button_b.pressed.connect(door_2.toggle)
+	
+	#player.mask_state_change.connect(_on_mask_state_change)
+	player.mask_state_change.connect(_on_player_mask_state_change)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,11 +33,12 @@ func _on_outside_body_entered(body: Node3D) -> void:
 func _on_player_mask_state_change(masked):
 	print('the mask state has changed')
 	if masked:
-		$"level 1 masked desk".show()
-		$"level 1 desk".hide()
-		$"level 1 desk/Desk/StaticBody3D/CollisionShape3D".disabled = true
+		get_node("Door_1").hide()
+		$Door_1/StaticBody3D/CollisionShape3D.disabled = true
+		get_node("Button_B").show()
+		$Button_B/StaticBody3D/CollisionShape3D.disabled = false
 	else:
-		$"Monitor".show()
-		$"Desk".show()
-		$"MonitorStand".show()
-		$"level 1 desk/Desk/StaticBody3D/CollisionShape3D".disabled = false
+		get_node("Door_1").show()
+		$Door_1/StaticBody3D/CollisionShape3D.disabled = false
+		get_node("Button_B").hide()
+		$Button_B/StaticBody3D/CollisionShape3D.disabled = true
