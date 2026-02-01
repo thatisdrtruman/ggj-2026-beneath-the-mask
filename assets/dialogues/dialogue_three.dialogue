@@ -1,0 +1,59 @@
+~ start
+Masked Man: You shouldn't be here. You have to go back.
+~ opts
+- I need your help. Someone has used the Mask.
+	set state.guard = state.guard + 1
+	Masked Man: The Mask of Many Worlds? That I'm guarding? Not likely. => opts2
+- Why? What is this place?
+	Masked Man: This is the facility. It protects the Mask from would-be thieves like you. => opts3
+- Take off your mask. => mask
+~ opts2
+- What can you tell me about the Mask?
+	Masked Man: I can tell you it's well protected. Anything beyond that is none of my business. => opts4
+- What is this place?
+	Masked Man: This is the facility. It protects the Mask from would-be thieves like you. => opts4
+- Take off your mask. => mask
+~ opts3
+- What can you tell me about the Mask?
+	Masked Man: I can tell you it's well protected. Anything beyond that is none of my business. => opts4
+- I need your help. Someone has used the Mask.
+	set state.guard = state.guard + 1
+	Masked Man: The Mask of Many Worlds? That I'm guarding? Not likely. => opts4
+- Take off your mask. => mask
+~ opts4
+- Take off your mask. => mask
+
+~ mask
+Masked Man: So you can catch me unawares? I don't think so. 
+~ loop
+- You're a good guard, you did everything you could.
+	You: You're a good guard, you did everything you could to protect the mask. But now you need to remove your mask. 
+	set state.guard = state.guard + 1
+	Masked Man: Damn right, I'm good. That's why I'm not falling for your tricks. => loop 
+- I'm ordering you to remove your mask.
+	set state.guard = state.guard + 2
+	Masked Man: You don't have the authority. Leave now, or there'll be trouble. => loop
+- Look at me, I look just like you. I'm also guarding the Mask.
+	Masked Man: Is funny, that. We do look exactly the same. How is that? => trick
+
+~ trick
+- I'm you from the future.
+	You: I'm you from the future. I've been called as backup. => end
+- I'm your clone. 
+	You: I'm your clone. I've been called as backup. => end
+- When we used the Mask, it fractured reality.
+	When we used the Mask, I think it fractured reality into  many copies of us. Now, you need to remove your mask and return to the whole.
+	Masked Man: Hmm... that sounds like a lot of rubbish to me. => trick 
+~ end
+Masked Mad: I always thought something like this would happen. What do you need me to do?
+- Remove your mask.
+	Masked Man: Yes, sir. => link
+- Deactivate the next room's defenses, then remove your mask.
+	Masked Man: Impossible during a lockdown, I'm sorry to say. But I'll [if state.guard < 2] gladly[/if] remove my own mask, knowing the facility is safe in your hands. => link 
+
+~ link
+if state.guard < 2
+	Masked Man: An honour it's been working alongside a fellow professional.
+else
+	Masked Man: Though you might be a strange version of myself, I suppose I can trust you to protect this facility.
+=> END!
