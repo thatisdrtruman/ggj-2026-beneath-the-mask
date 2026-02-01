@@ -1,7 +1,7 @@
 extends Control
 
 var audio_manager: AudioManager = null
-var res = load("res://assets/dialogues/dialogue_one.dialogue")
+var res = "res://assets/dialogues/dialogue_%s.dialogue" % state.current_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 	audio_manager.add_plus("dialogue", dialogue_theme)
 	audio_manager.play_plus("dialogue")
 	
-	DialogueManager.show_dialogue_balloon(res, "start")
+	DialogueManager.show_dialogue_balloon(load(res), "start")
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	pass
 
@@ -26,5 +26,4 @@ func _process(delta):
 
 func _on_dialogue_ended(res):
 	get_tree().change_scene_to_file("res://main.tscn")
-	# change to first level scene
 	

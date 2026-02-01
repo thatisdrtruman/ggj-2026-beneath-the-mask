@@ -35,7 +35,7 @@ func _process(delta):
 func _on_start_button_pressed():
 	audio_manager.play_plus("game_start")
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/first_dialogue.tscn")
+	get_tree().change_scene_to_file("res://scenes/dialogue.tscn")
 
 
 func _on_exit_button_pressed():

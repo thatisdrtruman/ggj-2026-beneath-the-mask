@@ -6,11 +6,21 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	state.current_level_root= get_node("Level_root")
-	_setup_level(state.current_level_root)
+	match state.gameplay_state:
+		0:
+			print("gamestate 0")
+			state.current_level_root= get_node("Level_root")
+			_setup_level(state.current_level_root)
+			state.gameplay_state = 1
+		1:
+			print("gamestate 1")
+			_load_level(state.current_level)
+		2:
+			print("gamestate 2")
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	#_load_level(level)
 
-	
+
 func _setup_level(level_root:Node):
 	var exit = level_root.get_node_or_null("Level_exit")
 	print(exit)
