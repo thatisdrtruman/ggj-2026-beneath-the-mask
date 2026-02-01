@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d1uwjtncbmj42"]
+
+[ext_resource type="PackedScene" uid="uid://bnedn4yrh0wcn" path="res://assets/Interior/Heavy Door.fbx" id="1_7utdd"]
+[ext_resource type="PackedScene" uid="uid://cl4in25rybv8g" path="res://assets/Interior/Heavy Door Gear.fbx" id="2_v0hej"]
+
+[sub_resource type="Animation" id="Animation_v0hej"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorPivot/Heavy Door/GearPivot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorPivot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_7utdd"]
+resource_name = "gear_turn"
+length = 7.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorPivot/Heavy Door/GearPivot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1.1, 1, 1, 0, 0, -4.371139e-08, 2.2333333, 1, 8.742278e-08, 0, 0, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorPivot/Heavy Door/GearPivot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -24.85, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorPivot")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.33, 0, 0, 3.3, 1, -0.33, 0, 0)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorPivot")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 3.3, 1, 0, 0, 0, 1, 6.6666665, 1, 0, 0.70710677, 0, 0.70710677)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0hej"]
+_data = {
+&"RESET": SubResource("Animation_v0hej"),
+&"gear_turn": SubResource("Animation_7utdd")
+}
+
+[node name="Node3D" type="Node3D" unique_id=1538937691]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1123685559]
+libraries/ = SubResource("AnimationLibrary_v0hej")
+
+[node name="DoorPivot" type="Node3D" parent="." unique_id=1017656034]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Heavy Door" parent="DoorPivot" unique_id=1061962564 instance=ExtResource("1_7utdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0268829)
+
+[node name="GearPivot" type="Node3D" parent="DoorPivot/Heavy Door" unique_id=1300918169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.85, 0, 0)
+
+[node name="Heavy Door Gear" parent="DoorPivot/Heavy Door/GearPivot" unique_id=1474791668 instance=ExtResource("2_v0hej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.05)

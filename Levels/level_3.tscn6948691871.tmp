@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://ix6f7k7no2cy" path="res://assets/Rooms/level 3.fbx" id="4_absw3"]
 [ext_resource type="Script" uid="uid://cy7lu8yj5ftfp" path="res://Levels/animation_player.gd" id="4_ck3gp"]
 [ext_resource type="PackedScene" uid="uid://bnedn4yrh0wcn" path="res://assets/Interior/Heavy Door.fbx" id="4_padch"]
-[ext_resource type="Script" uid="uid://d4bw6h4ilw68g" path="res://scripts/interactable.gd" id="5_ay5qi"]
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="5_ay5qi"]
 [ext_resource type="PackedScene" uid="uid://cl4in25rybv8g" path="res://assets/Interior/Heavy Door Gear.fbx" id="5_uwxw1"]
+[ext_resource type="Script" uid="uid://cmh4u5muw2ukh" path="res://assets/Interior/interactive-door-gear.gd" id="6_uwxw1"]
 [ext_resource type="Script" uid="uid://bkp2sadgwydn6" path="res://Levels/collision_shape_3d.gd" id="8_fa81k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
@@ -95,13 +96,12 @@ shape = SubResource("BoxShape3D_rf6l5")
 transform = Transform3D(1.2, 0, 0, 0, 1.8199999, 0, 0, 0, 1.4, 4.6415462, 1.4944205, 1.0221863)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=77892620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9526167, 1.213911, 0.8821864)
 light_energy = 12.0
 omni_range = 42.792305
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=899162115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.863789, 2.1957605, 0.92100143)
-light_energy = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.863789, 1.1957605, 0.92100143)
+light_energy = 6.0
 omni_range = 10.0
 
 [node name="DOOR" type="Node3D" parent="." unique_id=1808111286]
@@ -118,18 +118,19 @@ script = ExtResource("4_ck3gp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0268829)
 
 [node name="GearPivot" type="Node3D" parent="DOOR/DoorPivot/Heavy Door" unique_id=805983728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.85, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DOOR/DoorPivot/Heavy Door/GearPivot" unique_id=937474536]
 script = ExtResource("5_ay5qi")
 
 [node name="Heavy Door Gear" parent="DOOR/DoorPivot/Heavy Door/GearPivot/StaticBody3D" unique_id=431105340 instance=ExtResource("5_uwxw1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041, 0.05, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.790737, 0.049999893, 0.049999952)
+script = ExtResource("6_uwxw1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DOOR/DoorPivot/Heavy Door/GearPivot/StaticBody3D" unique_id=1646514502]
-transform = Transform3D(0.99999994, 0, -3.1974423e-14, 0, 0.32941255, 0, 0, 0, 0.35424954, 24.758896, 0, -1.847744e-06)
+transform = Transform3D(0.99999994, 0, -7.1054274e-15, 0, 0.32941255, 0, 0, 0, 0.35424954, -0.24114323, 0, 0)
 shape = SubResource("BoxShape3D_ay5qi")
 script = ExtResource("8_fa81k")
 
 [connection signal="body_entered" from="Outside" to="." method="_on_outside_body_entered"]
+[connection signal="pressed" from="DOOR/DoorPivot/Heavy Door/GearPivot/StaticBody3D/CollisionShape3D" to="." method="_on_collision_shape_3d_pressed"]
 [connection signal="pressed" from="DOOR/DoorPivot/Heavy Door/GearPivot/StaticBody3D/CollisionShape3D" to="." method="_on_collision_shape_3d_pressed"]

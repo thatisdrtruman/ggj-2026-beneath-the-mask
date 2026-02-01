@@ -29,3 +29,8 @@ func _on_player_mask_state_change(masked):
 		$"level 1 masked desk".hide()
 		$"level 1 desk".show()
 		$"level 1 desk/Desk/StaticBody3D/CollisionShape3D".disabled = false
+
+
+func _on_collision_shape_3d_pressed() -> void:
+	$DOOR/AnimationPlayer.play("gear_turn")
+	print("Animation Played!")

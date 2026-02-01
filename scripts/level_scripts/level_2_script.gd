@@ -32,6 +32,7 @@ func _on_player_mask_state_change(masked):
 		$"level 1 desk".hide()
 		$"level 1 desk/Desk/StaticBody3D/CollisionShape3D".disabled = true
 	else:
-		$"level 1 masked desk".hide()
-		$"level 1 desk".show()
+		$"Monitor".show()
+		$"Desk".show()
+		$"MonitorStand".show()
 		$"level 1 desk/Desk/StaticBody3D/CollisionShape3D".disabled = false
