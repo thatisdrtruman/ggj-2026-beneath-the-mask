@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cxdov5xl07phm"]
+
+[ext_resource type="PackedScene" uid="uid://d5elf7qursbn" path="res://assets/Rooms/level 1 room.fbx" id="1_hbghi"]
+[ext_resource type="PackedScene" uid="uid://ddte2i84h3qd2" path="res://player.tscn" id="3_hn12h"]
+
+[node name="Level one" type="Node3D" unique_id=1576291999]
+
+[node name="level 1 room" parent="." unique_id=1154979151 instance=ExtResource("1_hbghi")]
+
+[node name="Player" parent="." unique_id=1736146828 instance=ExtResource("3_hn12h")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.37979984, -3.7093701)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1370445422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9169693, 0)
+omni_range = 27.407

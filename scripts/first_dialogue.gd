@@ -25,6 +25,6 @@ func _process(delta):
 	pass
 
 func _on_dialogue_ended(res):
-	print("dialogue ended")
+	get_tree().change_scene_to_file("res://main.tscn")
 	# change to first level scene
 	

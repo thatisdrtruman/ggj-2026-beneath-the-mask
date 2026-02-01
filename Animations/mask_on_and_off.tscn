@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://ce0ya3dx60tir"]
+
+[ext_resource type="Texture2D" uid="uid://cvwg2k5htvwda" path="res://Animations/beneath-the-mask-mask-texture.png" id="1_nejgv"]
+[ext_resource type="ArrayMesh" uid="uid://c5tm6717did0e" path="res://Animations/beneath-the-mask-mask.obj" id="2_u3kvi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnauy"]
+albedo_texture = ExtResource("1_nejgv")
+
+[sub_resource type="Animation" id="Animation_ai1qv"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeneathTheMaskMask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 4, -5, -5)
+
+[sub_resource type="Animation" id="Animation_gnauy"]
+resource_name = "mask_off"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeneathTheMaskMask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.018509308, 1, 0, 1.1, -0.25, 0.33316755, 1, 0, -2, -0.25)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeneathTheMaskMask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.70710677, 0, 0.70710677, 0.29614893, 1, -0.35355338, -0.61237246, -0.3535534, 0.6123724)
+
+[sub_resource type="Animation" id="Animation_yymmg"]
+resource_name = "mask_on"
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"start",
+"time": -0.2666667
+}]
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeneathTheMaskMask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.013333291, 1, 4, 1.58, -5, 0.44514847, 1, 2, 1.58, -7, 0.8173159, 1, 0, 1.1, -0.25)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeneathTheMaskMask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(-0.04455501, 1, 0, -0.70710677, 0, 0.70710677)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gnauy"]
+_data = {
+&"RESET": SubResource("Animation_ai1qv"),
+&"mask_off": SubResource("Animation_gnauy"),
+&"mask_on": SubResource("Animation_yymmg")
+}
+
+[node name="Node3D" type="Node3D" unique_id=1961462747]
+
+[node name="BeneathTheMaskMask" type="MeshInstance3D" parent="." unique_id=277254038]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, -5, -5)
+material_override = SubResource("StandardMaterial3D_gnauy")
+mesh = ExtResource("2_u3kvi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=741076776]
+libraries/ = SubResource("AnimationLibrary_gnauy")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=593064234]

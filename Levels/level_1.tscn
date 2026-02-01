@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://743ior803h1q"]
+
+[ext_resource type="PackedScene" uid="uid://ddte2i84h3qd2" path="res://player.tscn" id="1_dilhk"]
+[ext_resource type="Script" uid="uid://dbillcjkienqp" path="res://scripts/level_scripts/level_1_script.gd" id="1_rfktq"]
+[ext_resource type="PackedScene" uid="uid://c3pugs1dpsjyg" path="res://assets/Rooms/level 1 room.fbx" id="2_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://co6mjqpknq460" path="res://assets/Rooms/level 1.fbx" id="3_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://djt3lhkli8xco" path="res://assets/Interior/level 1 masked desk.fbx" id="4_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://2usrhs7st5bo" path="res://assets/Interior/level 1 desk.fbx" id="6_rfktq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
+size = Vector3(1.5522156, 2.5734253, 1.7480469)
+
+[node name="Level_root" type="Node3D" unique_id=529749610]
+script = ExtResource("1_rfktq")
+
+[node name="Player" parent="." unique_id=1736146828 instance=ExtResource("1_dilhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022089005, 0.2743404, 3.523819)
+
+[node name="level 1" parent="." unique_id=1989714315 instance=ExtResource("3_3mhv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068380356, 2.0001457, -0.20514297)
+visible = false
+
+[node name="level 1 room" parent="." unique_id=447829597 instance=ExtResource("2_3mhv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1932472595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.584362, 2.747635)
+light_energy = 5.0
+omni_range = 7.66
+omni_attenuation = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=658996717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.584362, -2.7727804)
+light_energy = 5.0
+omni_range = 7.66
+omni_attenuation = 2.0
+
+[node name="level 1 masked desk" parent="." unique_id=487748835 instance=ExtResource("4_rf6l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035, 2, 0.895)
+visible = false
+
+[node name="level 1 desk" parent="." unique_id=2114541391 instance=ExtResource("6_rfktq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.445367, -0.28243828)
+
+[node name="Outside" type="Area3D" parent="." unique_id=392560475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675478, 1.5282626, 5.7228594)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside" unique_id=1476365948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09062195, 0, 0)
+shape = SubResource("BoxShape3D_rf6l5")
+
+[node name="Level_exit" type="Area3D" parent="." unique_id=1082983013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0337739, 1.5548258, -6.194135)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level_exit" unique_id=180121975]
+shape = SubResource("BoxShape3D_rf6l5")
+
+[connection signal="mask_state_change" from="Player" to="." method="_on_player_mask_state_change"]
+[connection signal="body_entered" from="Outside" to="." method="_on_outside_body_entered"]

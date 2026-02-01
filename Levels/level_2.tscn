@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cfsoh18xld8l0"]
+
+[ext_resource type="Script" uid="uid://spl7e1owdbv2" path="res://scripts/level_scripts/level_2_script.gd" id="1_fbld2"]
+[ext_resource type="PackedScene" uid="uid://ddte2i84h3qd2" path="res://player.tscn" id="1_ll1bl"]
+[ext_resource type="PackedScene" uid="uid://bmyhi5wth4br2" path="res://assets/Rooms/level 2 room.fbx" id="3_arsda"]
+[ext_resource type="Script" uid="uid://d4bw6h4ilw68g" path="res://scripts/interactable.gd" id="4_bcgyv"]
+[ext_resource type="Material" uid="uid://cm5iphtsvc470" path="res://assets/textures/locked.tres" id="4_dgq3b"]
+[ext_resource type="Script" uid="uid://caksxpa23t7mj" path="res://scripts/door.gd" id="6_fbld2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
+size = Vector3(2.9013672, 2.5734253, 0.1953125)
+
+[sub_resource type="BoxMesh" id="BoxMesh_arsda"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgq3b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bcgyv"]
+material = ExtResource("4_dgq3b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcgyv"]
+
+[node name="Level_root" type="Node3D" unique_id=529749610]
+script = ExtResource("1_fbld2")
+
+[node name="Player" parent="." unique_id=1736146828 instance=ExtResource("1_ll1bl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022089005, 0.2743404, 1.2216187)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1932472595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5062368, 0)
+light_energy = 2.0
+omni_range = 18.390026
+omni_attenuation = 2.0
+
+[node name="level 2 room" parent="." unique_id=1682000110 instance=ExtResource("3_arsda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5062368, 0)
+
+[node name="Outside" type="Area3D" parent="." unique_id=392560475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675478, 1.8687363, 10.688103)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside" unique_id=1476365948]
+shape = SubResource("BoxShape3D_rf6l5")
+
+[node name="Level_exit" type="Area3D" parent="." unique_id=1082983013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0715345, 1.880238, -11.820103)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level_exit" unique_id=180121975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11330211, 0, 2.0267286)
+shape = SubResource("BoxShape3D_rf6l5")
+
+[node name="Button_A" type="MeshInstance3D" parent="." unique_id=594831616]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -8.563818, 2.1823616, 0)
+mesh = SubResource("BoxMesh_arsda")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Button_A" unique_id=1801952929]
+script = ExtResource("4_bcgyv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button_A/StaticBody3D" unique_id=493036367]
+shape = SubResource("BoxShape3D_dgq3b")
+
+[node name="Door_1" type="MeshInstance3D" parent="." unique_id=1093392454]
+transform = Transform3D(0.18420762, 0, 0, 0, 2.972131, 0, 0, 0, 1.447784, 5.1369143, 1.9244092, 0)
+mesh = SubResource("BoxMesh_bcgyv")
+script = ExtResource("6_fbld2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door_1" unique_id=1626178677]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_1/StaticBody3D" unique_id=588501889]
+shape = SubResource("BoxShape3D_bcgyv")
+
+[node name="Button_B" type="MeshInstance3D" parent="." unique_id=408645872]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -8.503008, 1.9344239, -1.4515816)
+mesh = SubResource("BoxMesh_arsda")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Button_B" unique_id=1531906649]
+script = ExtResource("4_bcgyv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button_B/StaticBody3D" unique_id=1440252048]
+shape = SubResource("BoxShape3D_dgq3b")
+
+[node name="Door_2" type="MeshInstance3D" parent="." unique_id=539221320]
+transform = Transform3D(0.184, 0, 0, 0, 2.972, 0, 0, 0, 1.443, 5.002587, 2.0849516, 2.5514212)
+mesh = SubResource("BoxMesh_bcgyv")
+script = ExtResource("6_fbld2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door_2" unique_id=1113082039]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door_2/StaticBody3D" unique_id=1603868722]
+shape = SubResource("BoxShape3D_bcgyv")
+
+[connection signal="body_entered" from="Outside" to="." method="_on_outside_body_entered"]

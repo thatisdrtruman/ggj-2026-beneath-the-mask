@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c3ljh254cjt6y"]
+
+[ext_resource type="Script" uid="uid://t4dj34ak738h" path="res://scripts/level_scripts/level_3_script.gd" id="1_absw3"]
+[ext_resource type="PackedScene" uid="uid://ddte2i84h3qd2" path="res://player.tscn" id="2_padch"]
+[ext_resource type="PackedScene" uid="uid://c3pugs1dpsjyg" path="res://assets/Rooms/level 1 room.fbx" id="3_uwxw1"]
+[ext_resource type="PackedScene" uid="uid://co6mjqpknq460" path="res://assets/Rooms/level 1.fbx" id="4_ay5qi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
+size = Vector3(1.7089844, 2.5734253, 1.7480469)
+
+[node name="Level_root" type="Node3D" unique_id=529749610]
+script = ExtResource("1_absw3")
+
+[node name="Player" parent="." unique_id=1736146828 instance=ExtResource("2_padch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022089005, 0.2743404, 1.2216187)
+
+[node name="level 1 room" parent="." unique_id=1834566551 instance=ExtResource("3_uwxw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068748474, 2, -0.21032715)
+visible = false
+
+[node name="level 1" parent="." unique_id=1989714315 instance=ExtResource("4_ay5qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068380356, 2.0001457, -0.20514297)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1932472595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5062368, 0)
+omni_attenuation = 2.0
+
+[node name="Outside" type="Area3D" parent="." unique_id=392560475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0675478, 1.5282626, 5.7228594)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Outside" unique_id=1476365948]
+shape = SubResource("BoxShape3D_rf6l5")
+
+[node name="Level_exit" type="Area3D" parent="." unique_id=1082983013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0337739, 1.5548258, -6.194135)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level_exit" unique_id=180121975]
+shape = SubResource("BoxShape3D_rf6l5")
+
+[connection signal="body_entered" from="Outside" to="." method="_on_outside_body_entered"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://nqxgibsk3tnq"]
+
+[ext_resource type="PackedScene" uid="uid://ddte2i84h3qd2" path="res://player.tscn" id="1_n0qsc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ilcil"]
+size = Vector3(4.701172, 0.09765625, 4.7021484)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3hls8"]
+
+[node name="Test Level" type="Node3D" unique_id=2009077026]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1644756650]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1045177568]
+transform = Transform3D(5.4783626, 0, 0, 0, 5.4783626, 0, 0, 0, 5.4783626, 0, 0, 0)
+shape = SubResource("BoxShape3D_ilcil")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1052909142]
+transform = Transform3D(25.60607, 0, 0, 0, 0.5254278, 0, 0, 0, 25.748302, 0, 0, 0)
+mesh = SubResource("BoxMesh_3hls8")
+
+[node name="Player" parent="." unique_id=1736146828 instance=ExtResource("1_n0qsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41933322, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1702778811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4352317, 4.459399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D" unique_id=2004748655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5637727, -4.459712)
