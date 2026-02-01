@@ -1,10 +1,15 @@
 extends Node3D
 
-
+var audio_manager: AudioManager = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	audio_manager = AudioManager.new()
+	
+	add_child(audio_manager)
+	var door_opening: AudioManagerPlus = AudioManagerPlus.new()
+	door_opening.stream = preload("res://assets/sounds/Level_3_Door_02.wav")
+	audio_manager.add_plus("_door_opening", door_opening)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,4 +38,5 @@ func _on_player_mask_state_change(masked):
 
 func _on_collision_shape_3d_pressed() -> void:
 	$DOOR/AnimationPlayer.play("gear_turn")
+	audio_manager.play_plus("_door_opening")
 	print("Animation Played!")

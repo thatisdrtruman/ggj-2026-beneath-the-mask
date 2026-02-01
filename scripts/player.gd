@@ -10,6 +10,8 @@ var camera_sens = 50
 
 @export var masked:bool = false
 
+var audio_manager: AudioManager = null
+
 signal mask_state_change(masked)
 
 
@@ -20,6 +22,20 @@ func _ready():
 	$BeneathTheMaskMask.hide()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	audio_manager = AudioManager.new()
+	
+	
+	add_child(audio_manager)
+	var mask_on_sfx: AudioManagerPlus = AudioManagerPlus.new()
+	mask_on_sfx.stream = preload("res://assets/sounds/Mask_On_redone.wav")
+	audio_manager.add_plus("mask_on", mask_on_sfx)
+
+	
+	var mask_off_sfx: AudioManagerPlus = AudioManagerPlus.new()
+	mask_off_sfx.stream = preload("res://assets/sounds/Mask_off_redone.wav")
+	audio_manager.add_plus("mask_off", mask_off_sfx)
+	
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -52,10 +68,11 @@ func _input(event: InputEvent):
 		if masked:
 			$BeneathTheMaskMask.show()
 			$AnimationPlayer.play("mask_on")
-			
+			audio_manager.play_plus("mask_on")
 		else:
 			$AnimationPlayer.play("mask_off")
 			$Mask_view.hide()
+			audio_manager.play_plus("mask_off")
 
 func animation_finished(animationName):
 	print("ended",animationName)

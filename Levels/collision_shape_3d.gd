@@ -8,6 +8,6 @@ func get_interaction_text():
 func interact():
 	print("interacted with %s" %name)
 	emit_signal("pressed")
-	$"../../../../../AnimationPlayer".play("gear_turn")
+	
 	
 	
