@@ -25,7 +25,6 @@ script = ExtResource("1_fbld2")
 
 [node name="Player" parent="." unique_id=1736146828 instance=ExtResource("1_ll1bl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0035915, 0.3181393, 8.244558)
-visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1932472595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5062368, 0)

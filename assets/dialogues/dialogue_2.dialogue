@@ -50,13 +50,13 @@ Masked Man: Take off the mask? I don't think so. No, I don't think I'll do that.
 Masked Man: Do you promise?
 - I promise.
 	Masked Man: Thank you. I was so scared.
-	set state.promised = true
+	set DialogueState.promised = true
 - You're going to have to trust me.
 	Masked Man: Okay then. I can try. But I'm so afraid.
 ~ end
 - Now, take off the mask.
 Masked Man: Yes. 
-if state.promised == true
+if DialogueState.promised == true
 	Masked Man: You promised.
 else
 	Masked Man: I trust you.

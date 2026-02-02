@@ -2,10 +2,10 @@
 Masked Man: Reality has shattered. Someone has used the Mask of Many Worlds.
 - How can I help?
 - The mask of the what?
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	=>< query
 - This mask... it's nothing like the one you're currently wearing, is it?
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	Masked Man: Yes and no.
 Masked Man: The shattering of reality has now created many masks, and many versions of the thief who stole it.
 - Let me guess - I'm supposed to destory all the masks to restore reality? =>< smart_guy
@@ -23,14 +23,14 @@ Masked Man: You must destroy all the masks to restore reality.
  Masked Man: The facility is in lockdown. To overcome these defences, you may have to use the masks themselves by pressing 'm' to access the shattered world. But be warned, all masks will crack and break once removed.
 - I will find a way.
 - What do you mean by 'pressing m'?
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	Masked Man: On your keyboard. It also removes the mask, in case you were wondering.
 -  Anything else you need to explain to me?
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	Masked Man: As it happens... yes. 
 Masked Man: Along your travels, you may come across more of us wearing such masks, and they may not be as ready as I to part with them. 
 Masked Man: Now, I am afraid that I must remove my mask, and entrust this task to you. 
-if state.fucking_around >= 3
+if DialogueState.fucking_around >= 3
 	Masked Man: I hope, in out merging, I will act as a more sobering influence.
 else
 	Masked Man: I hope, in out merging, I  may still guide you.
@@ -54,25 +54,25 @@ Masked Man: That's exactly right. How did you know?
 - A lucky guess.
 	Masked Man: Then I am glad all luck has not abandoned us.
 - It's a little generic, don't you think?
-	set state.fucking_around = state.fucking_around + 1
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	Masked Man: Be that as it may...
 	=> return
 	
 ~ suspicious
 Masked Man: Yes? 
 - Are you the thief?
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	Masked Man: I couldn't possibly comment. 
 - It's not secretly me all along, is it?
-	set state.fucking_around = state.fucking_around + 1
+	set DialogueState.fucking_around = DialogueState.fucking_around + 1
 	Masked Man: I couldn't possibly comment. 
 - They better watch their back, is all.
 	Masked Man: There's the spirit. 
 => END
 
 ~ trust
-if state.fucking_around <= 1
+if DialogueState.fucking_around <= 1
 	Masked Man: My trust in you is strong.
 else
 	Masked Man: I give you what trust I have.

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://t4dj34ak738h" path="res://scripts/level_scripts/level_3_script.gd" id="1_absw3"]
 [ext_resource type="PackedScene" uid="uid://c40wam1h4bbim" path="res://player.tscn" id="2_padch"]
 [ext_resource type="PackedScene" uid="uid://ix6f7k7no2cy" path="res://assets/Rooms/level 3.fbx" id="4_absw3"]
-[ext_resource type="Script" uid="uid://cy7lu8yj5ftfp" path="res://Levels/animation_player.gd" id="4_ck3gp"]
+[ext_resource type="Script" path="res://Levels/animation_player.gd" id="4_ck3gp"]
 [ext_resource type="PackedScene" uid="uid://bnedn4yrh0wcn" path="res://assets/Interior/Heavy Door.fbx" id="4_padch"]
 [ext_resource type="Script" uid="uid://d4bw6h4ilw68g" path="res://scripts/interactable.gd" id="5_ay5qi"]
 [ext_resource type="PackedScene" uid="uid://cl4in25rybv8g" path="res://assets/Interior/Heavy Door Gear.fbx" id="5_uwxw1"]
-[ext_resource type="Script" uid="uid://bmpg33e0o1op0" path="res://Levels/door_to_animation.gd" id="8_fa81k"]
+[ext_resource type="Script" path="res://Levels/door_to_animation.gd" id="8_fa81k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
 size = Vector3(1.7089844, 2.5734253, 1.7480469)

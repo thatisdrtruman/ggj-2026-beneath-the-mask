@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
-state="*uid://ud72r5snuk57"
-State="*uid://b6ts2ak5axkg3"
+GameState="*uid://ud72r5snuk57"
+DialogueState="*uid://d2vabkvb2ofgv"
 
 [editor_plugins]
 
