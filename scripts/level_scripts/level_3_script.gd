@@ -6,13 +6,15 @@ var audio_manager: AudioManager = null
 func _ready() -> void:
 	audio_manager = AudioManager.new()
 	
-	
-	var door_opening: AudioManagerPlus = AudioManagerPlus.new()
-	door_opening.stream = preload("res://assets/sounds/Level_3_Door_02.wav")
+	var corridor_ambience: AudioManagerPlus = AudioManagerPlus.new()
+	corridor_ambience.stream = preload("res://assets/sounds/Laser Room Background (1).ogg")
+	corridor_ambience.volume_db = -20.0
+	corridor_ambience.loop = true
 	
 	add_child(audio_manager)
-	audio_manager.add_plus("door_opening", door_opening)
-	
+	audio_manager.add_plus("corridor_ambience", corridor_ambience)
+	#audio_manager.add_plus("mask_drone", mask_drone)
+	audio_manager.play_plus("corridor_ambience")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,5 +44,4 @@ func _on_player_mask_state_change(masked):
 
 func _on_collision_shape_3d_pressed() -> void:
 	$DOOR/AnimationPlayer.play("gear_turn")
-	audio_manager.play_plus("door_opening")
 	print("Animation Played!")

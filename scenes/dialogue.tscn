@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqb7ovwdxo7ve"]
 
 [ext_resource type="Script" uid="uid://cxmd3bq4uaky0" path="res://scripts/dialogue.gd" id="1_i0cxt"]
+[ext_resource type="Texture2D" uid="uid://brdnaqqkrb0p" path="res://assets/images/level_3.png" id="2_3n4vj"]
 
 [node name="DialogueScene" type="Control" unique_id=214283168]
 layout_mode = 3
@@ -10,3 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i0cxt")
+
+[node name="Level3" type="Sprite2D" parent="." unique_id=222370434]
+position = Vector2(575.55664, 323.50006)
+scale = Vector2(0.6120381, 0.61944443)
+texture = ExtResource("2_3n4vj")

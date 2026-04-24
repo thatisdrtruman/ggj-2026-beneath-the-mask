@@ -20,10 +20,11 @@ config/icon="res://icon.svg"
 DialogueManager="*uid://c3rodes2l3gxb"
 GameState="*uid://ud72r5snuk57"
 DialogueState="*uid://d2vabkvb2ofgv"
+AudioManagerTest="*uid://c1t7gu08ft35f"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/audio_manager/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

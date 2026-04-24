@@ -7,7 +7,7 @@ func _ready():
 	audio_manager = AudioManager.new()
 	var main_menu_theme: AudioManagerPlus = AudioManagerPlus.new()
 	main_menu_theme.stream = preload("res://assets/sounds/msc_main_menu.ogg")
-	main_menu_theme.volume_db = -10.0
+	main_menu_theme.volume_db = -25.0
 	main_menu_theme.loop = true
 	
 	var button_focus_sfx: AudioManagerPlus = AudioManagerPlus.new()

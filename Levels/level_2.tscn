@@ -36,7 +36,7 @@ omni_attenuation = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5062368, 0)
 visible = false
 
-[node name="level 2 room (4)" parent="." unique_id=1589132611 instance=ExtResource("4_s275v")]
+[node name="level 2 room (4)" parent="." unique_id=348958816 instance=ExtResource("4_s275v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2935529, 0)
 
 [node name="Level_exit" type="Area3D" parent="." unique_id=1082983013]

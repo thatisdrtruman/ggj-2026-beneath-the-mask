@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://13es0vtfsjxh"
+path="res://.godot/imported/Level_3_DataRoom_Amb (1).ogg-46cead18d144b58ac27168d3544ef10b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/Level_3_DataRoom_Amb (1).ogg"
+dest_files=["res://.godot/imported/Level_3_DataRoom_Amb (1).ogg-46cead18d144b58ac27168d3544ef10b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

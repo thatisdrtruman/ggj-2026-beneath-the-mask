@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://t4dj34ak738h" path="res://scripts/level_scripts/level_3_script.gd" id="1_absw3"]
 [ext_resource type="PackedScene" uid="uid://c40wam1h4bbim" path="res://player.tscn" id="2_padch"]
 [ext_resource type="PackedScene" uid="uid://ix6f7k7no2cy" path="res://assets/Rooms/level 3.fbx" id="4_absw3"]
-[ext_resource type="Script" path="res://Levels/animation_player.gd" id="4_ck3gp"]
+[ext_resource type="Script" uid="uid://cy7lu8yj5ftfp" path="res://Levels/animation_player.gd" id="4_ck3gp"]
 [ext_resource type="PackedScene" uid="uid://bnedn4yrh0wcn" path="res://assets/Interior/Heavy Door.fbx" id="4_padch"]
 [ext_resource type="Script" uid="uid://d4bw6h4ilw68g" path="res://scripts/interactable.gd" id="5_ay5qi"]
 [ext_resource type="PackedScene" uid="uid://cl4in25rybv8g" path="res://assets/Interior/Heavy Door Gear.fbx" id="5_uwxw1"]
-[ext_resource type="Script" path="res://Levels/door_to_animation.gd" id="8_fa81k"]
+[ext_resource type="Script" uid="uid://bmpg33e0o1op0" path="res://Levels/door_to_animation.gd" id="8_fa81k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf6l5"]
 size = Vector3(1.7089844, 2.5734253, 1.7480469)
@@ -77,6 +77,7 @@ transform = Transform3D(0.9999987, 0.0009431247, -0.0012656815, -0.0009443764, 0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1932472595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1002371, 0)
+visible = false
 omni_attenuation = 2.0
 
 [node name="Outside" type="Area3D" parent="." unique_id=392560475]
@@ -96,11 +97,25 @@ transform = Transform3D(1.2, 0, 0, 0, 1.8199999, 0, 0, 0, 1.4, 4.6415462, 1.4944
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=77892620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9526167, 1.213911, 0.8821864)
+visible = false
 light_energy = 12.0
 omni_range = 42.792305
 
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=87984449]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 31.033077, 2.9120595, 1.3113086)
+light_energy = 5.0
+spot_range = 12.288855
+spot_angle = 89.99
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1880536387]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15.3193245, 2.9120595, 1.3113086)
+light_energy = 5.0
+spot_range = 12.288855
+spot_angle = 89.99
+
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=899162115]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.863789, 2.1957605, 0.92100143)
+visible = false
 light_energy = 3.0
 omni_range = 10.0
 

@@ -27,11 +27,13 @@ func _ready():
 	
 	add_child(audio_manager)
 	var mask_on_sfx: AudioManagerPlus = AudioManagerPlus.new()
+	mask_on_sfx.volume_db = -15.0
 	mask_on_sfx.stream = preload("res://assets/sounds/Mask_On_redone.wav")
 	audio_manager.add_plus("mask_on", mask_on_sfx)
 
 	
 	var mask_off_sfx: AudioManagerPlus = AudioManagerPlus.new()
+	mask_off_sfx.volume_db = -15.0
 	mask_off_sfx.stream = preload("res://assets/sounds/Mask_off_redone.wav")
 	audio_manager.add_plus("mask_off", mask_off_sfx)
 	
@@ -66,20 +68,22 @@ func _input(event: InputEvent):
 	if Input.is_action_just_pressed("mask"):
 		masked = not masked
 		if masked:
+			audio_manager.play_plus("mask_on")
 			$BeneathTheMaskMask.show()
 			$AnimationPlayer.play("mask_on")
-			audio_manager.play_plus("mask_on")
+			
 		else:
 			$AnimationPlayer.play("mask_off")
 			$Mask_view.hide()
 			audio_manager.play_plus("mask_off")
 
 func animation_finished(animationName):
+	mask_state_change.emit(masked)
 	print("ended",animationName)
 	$BeneathTheMaskMask.hide()
 	if animationName == "mask_on":
 		$Mask_view.show()
-	mask_state_change.emit(masked)
+	
 		
 func animation_started(animationName):
 	print("started",animationName)
